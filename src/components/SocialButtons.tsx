@@ -1,21 +1,23 @@
+import { Button } from "@/components/ui/button";
+import { FaFacebook, FaApple, FaGoogle } from "react-icons/fa";
 
-import { Button } from './ui/button';
-import { FaFacebook, FaApple, FaGoogle } from 'react-icons/fa';
-
-const Buttons = () => {
+const LoginSocialButtons = () => {
   return (
-    <div className="flex flex-col w-full space-y-2">
-      <Button variant="outlined" className="flex items-center justify-center">
-        <FaFacebook className="mr-2" /> Login com Facebook
+    <div className="flex flex-row w-full space-x-2">
+      <Button variant="outline" className="items-center justify-center text-black w-16 h-16">
+        <FaFacebook className="mr-2 text-3xl" />
+      
       </Button>
-      <Button variant="outlined" className="flex items-center justify-center">
-        <FaApple className="mr-2" /> Login com Apple
+      <Button variant="outline" className="items-center justify-center text-black w-16 h-16">
+        <FaApple className="mr-2 text-3xl" /> 
+    
       </Button>
-      <Button variant="outlined" className="flex items-center justify-center">
-        <FaGoogle className="mr-2" /> Login com Google
+      <Button variant="outline" className="items-center justify-center text-black w-16 h-16">
+        <FaGoogle className="mr-2 text-3xl" /> 
+      
       </Button>
     </div>
   );
 };
 
-export default Buttons;
+export default LoginSocialButtons;

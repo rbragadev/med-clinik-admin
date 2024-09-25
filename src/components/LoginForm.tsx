@@ -1,23 +1,22 @@
-
-import { useState } from 'react';
-import { Input } from './ui/input';
-import { Button } from './ui/button';
-import { Checkbox } from './ui/checkbox';
-import { Label } from './ui/label';
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
 const LoginForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log('Form Submitted:', { name, email, password, rememberMe });
+    console.log("Form Submitted:", { name, email, password, rememberMe });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4 text-black">
       <div>
         <Label htmlFor="name">Nome Completo</Label>
         <Input
@@ -52,7 +51,7 @@ const LoginForm = () => {
         <Checkbox
           id="rememberMe"
           checked={rememberMe}
-          onChange={(e) => setRememberMe(e.target.checked)}
+          onCheckedChange={(checked) => setRememberMe(!!checked)}
         />
         <Label htmlFor="rememberMe">Lembrar-me</Label>
       </div>

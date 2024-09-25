@@ -1,18 +1,26 @@
-import React from 'react';
-import { FormControl, FormLabel, FormLabelProps } from '@mui/material';
+"use client"
 
-// Definindo as props que o componente Label aceitará
-interface LabelProps extends FormLabelProps {
-  // Você pode adicionar props adicionais aqui se necessário
-}
+import * as React from "react"
+import * as LabelPrimitive from "@radix-ui/react-label"
+import { cva, type VariantProps } from "class-variance-authority"
 
-// Componente Label que envolve o FormLabel com FormControl
-const Label: React.FC<LabelProps> = ({ children, ...props }) => {
-  return (
-    <FormControl fullWidth>
-      <FormLabel {...props}>{children}</FormLabel>
-    </FormControl>
-  );
-};
+import { cn } from "@/lib/utils"
 
-export { Label };
+const labelVariants = cva(
+  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+)
+
+const Label = React.forwardRef<
+  React.ElementRef<typeof LabelPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
+    VariantProps<typeof labelVariants>
+>(({ className, ...props }, ref) => (
+  <LabelPrimitive.Root
+    ref={ref}
+    className={cn(labelVariants(), className)}
+    {...props}
+  />
+))
+Label.displayName = LabelPrimitive.Root.displayName
+
+export { Label }
