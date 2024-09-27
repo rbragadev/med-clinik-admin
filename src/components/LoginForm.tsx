@@ -16,7 +16,7 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 text-black">
+    <form onSubmit={handleSubmit} className="space-y-6 text-black">
       <div>
         <Label htmlFor="name">Nome Completo</Label>
         <Input
@@ -25,6 +25,7 @@ const LoginForm = () => {
           placeholder="Seu nome completo"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          className="p-6 rounded-2xl"
         />
       </div>
       <div>
@@ -35,6 +36,7 @@ const LoginForm = () => {
           placeholder="email@example.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="p-6 rounded-2xl"
         />
       </div>
       <div>
@@ -45,6 +47,7 @@ const LoginForm = () => {
           placeholder="Sua senha"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+           className="p-6 rounded-2xl"
         />
       </div>
       <div className="flex items-center space-x-2">
@@ -55,7 +58,7 @@ const LoginForm = () => {
         />
         <Label htmlFor="rememberMe">Lembrar-me</Label>
       </div>
-      <Button type="submit" className="w-full">
+      <Button type="submit" className="w-full p-6 rounded-2xl bg-teal-300">
         Entrar
       </Button>
     </form>

@@ -7,10 +7,10 @@ import { Typography } from "@/components/ui/typography";
 const LoginPage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-teal-500">
-      <Typography component="h1" className="text-4xl font-bold text-center">
+      <Typography component="h1" className="text-4xl font-bold text-center pb-6">
         Welcome!
       </Typography>
-      <Typography component="h1" className="text-4 text-center">
+      <Typography component="h1" className="text-4 text-center pb-20">
         Use these awesome forms to login or create new account in your project
         for free.
       </Typography>
