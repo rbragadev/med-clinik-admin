@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
 const LoginForm = () => {
@@ -18,18 +17,18 @@ const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-6 text-black">
       <div>
-        <Label htmlFor="name">Nome Completo</Label>
+        <Label htmlFor="name">Name</Label>
         <Input
           id="name"
           type="text"
-          placeholder="Seu nome completo"
+          placeholder="Your full name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="p-6 rounded-2xl"
         />
       </div>
       <div>
-        <Label htmlFor="email">Endereço de Email</Label>
+        <Label htmlFor="email">Email</Label>
         <Input
           id="email"
           type="email"
@@ -40,27 +39,50 @@ const LoginForm = () => {
         />
       </div>
       <div>
-        <Label htmlFor="password">Senha</Label>
+        <Label htmlFor="password">Password</Label>
         <Input
           id="password"
           type="password"
-          placeholder="Sua senha"
+          placeholder="Your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-           className="p-6 rounded-2xl"
+          className="p-6 rounded-2xl"
         />
       </div>
-      <div className="flex items-center space-x-2">
-        <Checkbox
+      <div className="flex items-center">
+        <input
+          type="checkbox"
           id="rememberMe"
           checked={rememberMe}
-          onCheckedChange={(checked) => setRememberMe(!!checked)}
+          onChange={(e) => setRememberMe(e.target.checked)}
+          className="toggle-checkbox hidden"
         />
-        <Label htmlFor="rememberMe">Lembrar-me</Label>
+        <label
+          htmlFor="rememberMe"
+          className={`toggle-label w-12 h-6 flex items-center rounded-full p-1 cursor-pointer transition-colors ${
+            rememberMe ? "bg-teal-400" : "bg-gray-300"
+          }`}
+        >
+          <div
+            className={`toggle-circle bg-white w-4 h-4 rounded-full shadow-md transform transition-transform ${
+              rememberMe ? "translate-x-6" : ""
+            }`}
+          ></div>
+        </label>
+        <span className="ml-3 text-gray-800">Remember me</span>
       </div>
-      <Button type="submit" className="w-full p-6 rounded-2xl bg-teal-300">
-        Entrar
+      <Button type="submit" className="w-full p-6 rounded-2xl bg-teal-400">
+       Sign Up
       </Button>
+      <div className="mt-4 text-center">
+        <span className="text-gray-800">Already have an account? </span>
+        <a
+          href="/Login"
+          className="text-teal-500 hover:text-teal-700 font-semibold"
+        >
+          Sign In
+        </a>
+      </div>
     </form>
   );
 };
