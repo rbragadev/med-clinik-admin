@@ -8,18 +8,24 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
-    
+    if (!name || !email || !password){
+    setError("Por favor, preencha todos os campos.")
+    return;
+    }
+
     console.log("Form Submitted:", { name, email, password, rememberMe });
 
-
+    setError("");
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 text-black">
+       {error && <div className="text-red-500">{error}</div>}
       <div>
         <Label htmlFor="name">Name</Label>
         <Input
@@ -76,7 +82,7 @@ const LoginForm = () => {
         <span className="ml-3 text-gray-800">Remember me</span>
       </div>
       <Button type="submit" className="w-full p-6 rounded-2xl bg-teal-300">
-       Sign
+        Sign
       </Button>
       <div className="mt-4 text-center">
         <span className="text-gray-800">Already have an account? </span>
