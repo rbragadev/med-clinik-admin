@@ -7,7 +7,7 @@ import BackgroundHeader from "@/components/ui/BackgroundHeader";
 
 const LoginPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-slate-50">
       <BackgroundHeader>
         <Typography
           component="h1"
@@ -19,10 +19,11 @@ const LoginPage = () => {
           Use these awesome forms to login or create new account in your project
           for free.
         </Typography>
+
       </BackgroundHeader>
 
       <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-lg">
-        <Typography
+      <Typography
           component="h1"
           className="text-2xl font-bold text-center text-black"
         >
@@ -33,6 +34,8 @@ const LoginPage = () => {
           <span className="mx-2 text-gray-400 font-bold">Or</span>
         </div>
         <LoginForm />
+
+   
       </div>
     </div>
   );

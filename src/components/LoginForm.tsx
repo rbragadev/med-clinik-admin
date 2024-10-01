@@ -11,7 +11,11 @@ const LoginForm = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+
+    
     console.log("Form Submitted:", { name, email, password, rememberMe });
+
+
   };
 
   return (
@@ -71,8 +75,8 @@ const LoginForm = () => {
         </label>
         <span className="ml-3 text-gray-800">Remember me</span>
       </div>
-      <Button type="submit" className="w-full p-6 rounded-2xl bg-teal-400">
-       Sign Up
+      <Button type="submit" className="w-full p-6 rounded-2xl bg-teal-300">
+       Sign
       </Button>
       <div className="mt-4 text-center">
         <span className="text-gray-800">Already have an account? </span>
